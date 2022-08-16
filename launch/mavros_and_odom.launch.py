@@ -10,16 +10,15 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    """Launch t265 Intel Realsense camera with the px4 bridge"""
-    realsense_launch_dir = os.path.join(get_package_share_directory('realsense2_camera'), 'launch')
+    """Launch Intel Realsense tracking camera with the px4 bridge AND mavros"""
     bridge_launch_dir = os.path.join(get_package_share_directory('realsense_mav_bridge'), 'launch')
+    bridge_launch_dir = os.path.join(get_package_share_directory('mavbase2'), 'launch')
 
     return LaunchDescription([
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([realsense_launch_dir, '/rs_launch.py'])
+            PythonLaunchDescriptionSource([bridge_launch_dir, '/camera_odom.launch.py'])
         ),
-        Node(
-            package='realsense_mav_bridge',
-            executable='bridge.py',
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([realsense_launch_dir, '/px4_usb.launch.py'])
         ),
 ])
