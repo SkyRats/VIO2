@@ -16,7 +16,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([bridge_launch_dir, '/camera_odom.launch.py'])
+            PythonLaunchDescriptionSource([bridge_launch_dir, '/camera_odom.launch.py']),
         ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([mavbase_launch_dir, '/px4_usb.launch.py'])

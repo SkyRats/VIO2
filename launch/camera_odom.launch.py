@@ -15,10 +15,25 @@ def generate_launch_description():
 
     return LaunchDescription([
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([realsense_launch_dir, '/rs_launch.py'])
+            PythonLaunchDescriptionSource([realsense_launch_dir, '/rs_launch.py']),
+            launch_arguments={'publish_odom_tf': 'false'}.items(),
         ),
         Node(
             package='realsense_mav_bridge',
             executable='bridge.py',
+        ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='tf_baselink_cameraPose',
+            arguments = ["0", "0", "0", "0", "1.5708", "0", "base_link", "camera_pose_frame"],
+            output="screen"
+        ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='tf_baselink_cameraPose',
+            arguments = ["0", "0", "0", "0", "0", "0", "odom", "camera_odom_frame"],
+            output="screen"
         ),
 ])
