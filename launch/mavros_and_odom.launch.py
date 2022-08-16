@@ -12,13 +12,13 @@ from launch_ros.actions import Node
 def generate_launch_description():
     """Launch Intel Realsense tracking camera with the px4 bridge AND mavros"""
     bridge_launch_dir = os.path.join(get_package_share_directory('realsense_mav_bridge'), 'launch')
-    bridge_launch_dir = os.path.join(get_package_share_directory('mavbase2'), 'launch')
+    mavbase_launch_dir = os.path.join(get_package_share_directory('mavbase2'), 'launch')
 
     return LaunchDescription([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([bridge_launch_dir, '/camera_odom.launch.py'])
         ),
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([realsense_launch_dir, '/px4_usb.launch.py'])
+            PythonLaunchDescriptionSource([mavbase_launch_dir, '/px4_usb.launch.py'])
         ),
 ])
