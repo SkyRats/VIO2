@@ -14,6 +14,7 @@ class realsense_bridge(Node):
         self.odometry_pub = self.create_publisher(Odometry,  '/mavros/odometry/out', 5)
     
     def odometry_callback(self, data):
+        self.get_logger().info('Publishing Odometry')
         self.odometry_pub.publish(data)
     
 if __name__ == '__main__':
