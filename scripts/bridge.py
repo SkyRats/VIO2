@@ -3,6 +3,7 @@
 import rclpy
 from rclpy import qos
 from rclpy.node import Node
+from rclpy.clock import Clock
 from nav_msgs.msg import Odometry
 from mavros_msgs.msg import CompanionProcessStatus
 
