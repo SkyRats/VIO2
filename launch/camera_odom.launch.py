@@ -19,9 +19,9 @@ def generate_launch_description():
             launch_arguments={
                             'enable_fisheye1': 'true',
                             'enable_fisheye2': 'true',
-                            'fisheye_fps': '30',
-                            'gyro_fps': '200',
-                            'accel_fps': '62',
+                            'fisheye_fps': '30.0',
+                            'gyro_fps': '200.0',
+                            'accel_fps': '62.0',
                             'enable_gyro': 'false',
                             'enable_accel': 'false',
                             'publish_odom_tf': 'false'}.items(),
