@@ -21,6 +21,7 @@ class realsense_bridge(Node):
         self.odometry_pub.publish(data)
 
         self.mav_comp_id_msg.header.stamp = Clock().now().to_msg()
+        self.mav_comp_id_msg.state = 4 #MAV_STATE_ACTIVE
         self.mav_comp_id_msg.component = 197 # MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY
 
         self.companion_computer_pub.publish(self.mav_comp_id_msg)
