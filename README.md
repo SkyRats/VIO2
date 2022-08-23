@@ -1,4 +1,4 @@
-# realsense_mav_bridge
+# px4_realsense_bridge
 Ros2 package that enables Intel Realsense tracking cameras to be used with px4 micro-air-vehicle
 
 ## Dependencies
@@ -9,8 +9,8 @@ Ros2 package that enables Intel Realsense tracking cameras to be used with px4 m
 ## Usage
 If you have mavros running on one terminal and the camera running on another, run:
 
-```ros2 launch realsense_mav_bridge camera_odom.launch.py```
+```ros2 launch px4_realsense_bridge camera_odom.launch.py```
 
 If you wish to run mavros and the bridge on the same terminal, run:
 
-```ros2 launch realsense_mav_bridge mavros_and_odom.launch.py```
+```ros2 launch px4_realsense_bridge mavros_and_odom.launch.py```
